@@ -50,7 +50,7 @@ const nav1 = document.querySelector('.nav-items1');
 const nav2 = document.querySelector('.nav-items2');
 const nav3 = document.querySelector('.nav-items3');
 
-currenttime(daytime)
+currenttime(daytime);
 setTimeout(() => { currenttime(daytime); }, 1000);
 
 navitems.forEach((element, index) => {
