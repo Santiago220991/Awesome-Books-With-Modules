@@ -1,3 +1,7 @@
+import bookstoraged from './modules/storagedbooks.js';
+import * as messages from './modules/messages.js';
+import currenttime from './modules/time.js';
+
 class Bookshelf {
   constructor() {
     this.book = [];
@@ -46,17 +50,8 @@ const nav1 = document.querySelector('.nav-items1');
 const nav2 = document.querySelector('.nav-items2');
 const nav3 = document.querySelector('.nav-items3');
 
-function currenttime() {
-  const today = new Date();
-  const montharr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  let month = today.getMonth();
-  month = montharr[month];
-  const date = `${month} ${today.getDate()} ${today.getFullYear()}`;
-  const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-  const dateTime = `${date} ${time}`;
-  daytime.textContent = dateTime;
-}
-setInterval(currenttime, 1000);
+currenttime(daytime);
+setTimeout(() => { currenttime(daytime); }, 1000);
 
 navitems.forEach((element, index) => {
   element.addEventListener('click', () => {
@@ -88,17 +83,7 @@ navitems.forEach((element, index) => {
   });
 });
 
-if (books.book != null) {
-  books.book.forEach((element) => {
-    shelfbook.innerHTML += `
-    <div class="${element.name}">
-      <h2>"${element.name}" by ${element.owner}</h2>
-      <button class="remove-btn">
-        Remove
-      </button>
-    </div>`;
-  });
-}
+bookstoraged(books, shelfbook);
 
 if (books.book !== '') {
   const removeBtn = document.querySelectorAll('.remove-btn');
@@ -110,24 +95,13 @@ if (books.book !== '') {
   });
 }
 
-function hidemsga() {
-  msga.classList.remove('active');
-};
-function hidemsgb() {
-  msgb.classList.remove('active');
-};
-function hidemsgc() {
-  msgc.classList.remove('active');
-};
-
-
 addbtn.addEventListener('click', () => {
   if (title.value === '' || author.value === '') {
-    msga.classList.add('active');
-    setTimeout(hidemsga, 2000);
-  } else if (books.book.filter((element) => element.name === title.value).length !== 0) { msgb.classList.add('active'); setTimeout(hidemsgb, 2000); } else {
-    msgc.classList.add('active');
-    setTimeout(hidemsgc, 2000);
+    messages.hidemsga(msga);
+  } else if (books.book.filter((element) => element.name === title.value).length !== 0) {
+    messages.hidemsgb(msgb);
+  } else {
+    messages.hidemsgc(msgc);
     books.add(title.value, author.value, shelfbook);
     const removeBtn = document.querySelectorAll('.remove-btn');
     removeBtn.forEach((element) => {
