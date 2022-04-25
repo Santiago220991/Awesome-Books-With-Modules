@@ -1,6 +1,6 @@
 import {bookstoraged} from "./modules/storagedbooks.js"
 import * as messages from "./modules/messages.js"
-
+import { currenttime } from "./modules/time.js";
 class Bookshelf {
   constructor() {
     this.book = [];
@@ -49,17 +49,7 @@ const nav1 = document.querySelector('.nav-items1');
 const nav2 = document.querySelector('.nav-items2');
 const nav3 = document.querySelector('.nav-items3');
 
-function currenttime() {
-  const today = new Date();
-  const montharr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  let month = today.getMonth();
-  month = montharr[month];
-  const date = `${month} ${today.getDate()} ${today.getFullYear()}`;
-  const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-  const dateTime = `${date} ${time}`;
-  daytime.textContent = dateTime;
-}
-setInterval(currenttime, 1000);
+setTimeout(()=>{currenttime(daytime),1000})
 
 navitems.forEach((element, index) => {
   element.addEventListener('click', () => {
