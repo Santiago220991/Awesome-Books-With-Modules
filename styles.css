@@ -171,10 +171,6 @@ header.active {
   width: 90%;
   margin: 12px;
   border: solid 2px black;
-  justify-self: flex-end;
   margin-top: auto;
-}
-
-.copyright p {
-  padding-left: 50px;
+  text-align: center;
 }
