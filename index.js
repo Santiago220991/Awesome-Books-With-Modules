@@ -1,3 +1,5 @@
+import {bookstoraged} from "./modules/storagedbooks.js"
+
 class Bookshelf {
   constructor() {
     this.book = [];
@@ -88,17 +90,7 @@ navitems.forEach((element, index) => {
   });
 });
 
-if (books.book != null) {
-  books.book.forEach((element) => {
-    shelfbook.innerHTML += `
-    <div class="${element.name}">
-      <h2>"${element.name}" by ${element.owner}</h2>
-      <button class="remove-btn">
-        Remove
-      </button>
-    </div>`;
-  });
-}
+bookstoraged(books,shelfbook)
 
 if (books.book !== '') {
   const removeBtn = document.querySelectorAll('.remove-btn');
