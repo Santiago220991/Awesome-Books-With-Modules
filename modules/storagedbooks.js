@@ -1,4 +1,5 @@
-export const bookstoraged=(books,shelfbook)=>{if (books.book != null) {
+const bookstoraged = (books, shelfbook) => {
+  if (books.book != null) {
     books.book.forEach((element) => {
       shelfbook.innerHTML += `
       <div class="${element.name}">
@@ -8,4 +9,7 @@ export const bookstoraged=(books,shelfbook)=>{if (books.book != null) {
         </button>
       </div>`;
     });
-  }}
+  }
+};
+
+export default bookstoraged;

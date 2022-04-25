@@ -1,6 +1,7 @@
-import {bookstoraged} from "./modules/storagedbooks.js"
-import * as messages from "./modules/messages.js"
-import { currenttime } from "./modules/time.js";
+import bookstoraged from './modules/storagedbooks.js';
+import * as messages from './modules/messages.js';
+import currenttime from './modules/time.js';
+
 class Bookshelf {
   constructor() {
     this.book = [];
@@ -49,7 +50,7 @@ const nav1 = document.querySelector('.nav-items1');
 const nav2 = document.querySelector('.nav-items2');
 const nav3 = document.querySelector('.nav-items3');
 
-setTimeout(()=>{currenttime(daytime),1000})
+setTimeout(() => { currenttime(daytime); }, 1000);
 
 navitems.forEach((element, index) => {
   element.addEventListener('click', () => {
@@ -81,7 +82,7 @@ navitems.forEach((element, index) => {
   });
 });
 
-bookstoraged(books,shelfbook)
+bookstoraged(books, shelfbook);
 
 if (books.book !== '') {
   const removeBtn = document.querySelectorAll('.remove-btn');
@@ -95,12 +96,11 @@ if (books.book !== '') {
 
 addbtn.addEventListener('click', () => {
   if (title.value === '' || author.value === '') {
-    messages.hidemsga(msga)//////
-  } 
-  else if (books.book.filter((element) => element.name === title.value).length !== 0) { 
-    messages.hidemsgb(msgb) } /////
-    else {
-    messages.hidemsgc(msgc)/////
+    messages.hidemsga(msga);
+  } else if (books.book.filter((element) => element.name === title.value).length !== 0) {
+    messages.hidemsgb(msgb);
+  } else {
+    messages.hidemsgc(msgc);
     books.add(title.value, author.value, shelfbook);
     const removeBtn = document.querySelectorAll('.remove-btn');
     removeBtn.forEach((element) => {
