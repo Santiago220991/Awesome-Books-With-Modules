@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Aweasome-books-
+# Aweasome Books with Modules
 
 This is our Awesome books page, a basic website that allows users to add/remove books from a list.
 
@@ -11,6 +11,13 @@ This is our Awesome books page, a basic website that allows users to add/remove 
 ## Live demo
 
 https://santiago220991.github.io/Awesome-Books-With-Modules/
+
+## Setup
+
+- Clone the repository.
+- Open the index.html with a live server.
+- Open a browser an introduce the next URL http://127.0.0.1:5501/index.html
+
 
 ## Authors
 
