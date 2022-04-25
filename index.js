@@ -1,4 +1,5 @@
 import {bookstoraged} from "./modules/storagedbooks.js"
+import * as messages from "./modules/messages.js"
 
 class Bookshelf {
   constructor() {
@@ -102,24 +103,14 @@ if (books.book !== '') {
   });
 }
 
-function hidemsga() {
-  msga.classList.remove('active');
-};
-function hidemsgb() {
-  msgb.classList.remove('active');
-};
-function hidemsgc() {
-  msgc.classList.remove('active');
-};
-
-
 addbtn.addEventListener('click', () => {
   if (title.value === '' || author.value === '') {
-    msga.classList.add('active');
-    setTimeout(hidemsga, 2000);
-  } else if (books.book.filter((element) => element.name === title.value).length !== 0) { msgb.classList.add('active'); setTimeout(hidemsgb, 2000); } else {
-    msgc.classList.add('active');
-    setTimeout(hidemsgc, 2000);
+    messages.hidemsga(msga)//////
+  } 
+  else if (books.book.filter((element) => element.name === title.value).length !== 0) { 
+    messages.hidemsgb(msgb) } /////
+    else {
+    messages.hidemsgc(msgc)/////
     books.add(title.value, author.value, shelfbook);
     const removeBtn = document.querySelectorAll('.remove-btn');
     removeBtn.forEach((element) => {
