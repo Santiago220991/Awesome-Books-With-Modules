@@ -24,7 +24,6 @@ https://santiago220991.github.io/Awesome-Books-With-Modules/
 👤 **Santiago Cárdenas**
 
 - GitHub: [@githubhandle](https://github.com/Santiago220991)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/santiago-c%C3%A1rdenas-671043160/)
 
 👤 **Andrés Garzon**
